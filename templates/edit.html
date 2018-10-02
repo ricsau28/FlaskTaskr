@@ -1,0 +1,49 @@
+{% extends "_base.html" %}
+{% block content %}
+
+<h1>FlaskTaskr</h1>
+<h2>Edit Task</h2>
+<h3>
+
+    <label>Task ID:</label>                    
+    <input name="task_id" type = "text" value="{{ taskToEdit.task_id }}">
+</h3>
+<div class="edit-task">
+    <table>
+        <tr>
+            <form action="{{ url_for('save_edited_task', task_id=taskToEdit.task_id) }}" method = "post">
+                <td>
+                    <label>Task Name:</label>                    
+                    <input name="name" type = "text" value="{{ taskToEdit.task_name }}">
+                </td>
+                <td>
+                    <label>Due Date (mm/dd/yyyy):</label>
+                    <input name="due_date" type="text"  value="{{ taskToEdit.due_date }}"width="120px">
+                </td>
+                <td>
+                    <label>Priority:</label>
+                    <select name="priority"  value="{{ taskToEdit.priority }}" width="100px">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </td>
+                <td>
+                    &nbsp;
+                    &nbsp;
+                    <input class="button" type="submit" value="Cancel">
+                    <input class="button" type="submit" value="Save">
+                </td>
+            </form>    
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

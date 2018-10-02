@@ -1,0 +1,45 @@
+Main
+====
+1.  Create directory structure (use shell script?)
+2.  Create and activate virtualenv
+3.  pip3 install wheel flask
+4.  pip3 freeze > requirements.txt
+5.  Create project on GitHub 
+	 (https://github.com/ricsau28/flasktaskr.git)
+6.  Init local git repository, set remote origin, and push
+
+Database Tasks
+==============
+1.  Create role for flasktaskr
+2.  Create database for flasktaskr
+3.  Create "dev" schema
+4.  Import data from .csv files into tables dev.users, dev.tasks
+
+
+To Do's
+=======
+Change tasks.due_date from string to date (UTC??)
+Don't delete tasks - give them a status of -1, which will mark it for purging
+Research encrypting data (passwords, etc.)
+
+Questions
+=========
+Q: How to tell when session ends?
+
+9/30/2018
+=========
+Added email to dev.users table and created a unique constraint.
+Today's To Do's
+---------------
+1. Create registration form
+2. Finish login form
+
+Miscellany
+==========
+Secret Key
+----------
+ Generate random number, via: (p 149)
+ >>> import os
+ >>> os.random(24)
+
+
