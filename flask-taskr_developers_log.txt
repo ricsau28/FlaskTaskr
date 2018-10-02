@@ -14,6 +14,7 @@ Database Tasks
 2.  Create database for flasktaskr
 3.  Create "dev" schema
 4.  Import data from .csv files into tables dev.users, dev.tasks
+5.  Restart sequences, if necessary (see Miscellany)
 
 
 To Do's
@@ -21,10 +22,18 @@ To Do's
 Change tasks.due_date from string to date (UTC??)
 Don't delete tasks - give them a status of -1, which will mark it for purging
 Research encrypting data (passwords, etc.)
+Render a 404 page if error or no database connection
+Research date picker web controls, if any
 
 Questions
 =========
 Q: How to tell when session ends?
+
+Q: What kinds of exceptions can be raised in Python?
+A: See https://docs.python.org/3/library/exceptions.html#exception-hierarchy
+
+Q: How to get new id from (psycopg2) procedure?
+Q: Is there a way to determine if a connection has a transaction that can be committed/rolled back?
 
 9/30/2018
 =========
@@ -41,5 +50,11 @@ Secret Key
  Generate random number, via: (p 149)
  >>> import os
  >>> os.random(24)
+
+Restart Sequences
+-----------------
+Duplicate task_id's were being created, so I had to restart the sequence as below:
+SELECT MAX(task_id) from dev.tasks;
+ALTER SEQUENCE dev.tasks_task_id_seq RESTART WITH 57;
 
 
